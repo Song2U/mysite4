@@ -27,7 +27,7 @@
 	</context:component-scan>
 
 	<!-- oracle datasource -->
-	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource"
+	<bean id="oracleDatasource" class="oracle.jdbc.pool.OracleDataSource"
 		destroy-method="close">
 		<property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe" />
 		<property name="user" value="webdb" />
@@ -42,5 +42,9 @@
 		<property name="configLocation" value="classpath:mybatis/configuration.xml" />
 	</bean>
 
+	<!-- MyBatis SqlSessionTemplate -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
 
-</beans> 
+</beans>
