@@ -1,6 +1,5 @@
 package kr.ac.sungkyul.mysite.controller;
 
-import javax.naming.AuthenticationException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import kr.ac.sungkyul.mysite.service.UserService;
 import kr.ac.sungkyul.mysite.vo.UserVo;
 
@@ -56,6 +53,13 @@ public class UserController {
 
 		// 인증 성공
 		session.setAttribute("authUser", authUser);
+		return "redirect:/main";
+	}
+
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("authUser");
+		session.invalidate();
 		return "redirect:/main";
 	}
 }
