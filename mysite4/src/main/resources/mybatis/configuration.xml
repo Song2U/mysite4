@@ -3,10 +3,12 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="kr.ac.sungkyul.mysite.vo.UserVo" alias="uservo" />
+		<typeAlias type="kr.ac.sungkyul.mysite.vo.BoardVo" alias="boardvo" />
+		<typeAlias type="kr.ac.sungkyul.mysite.vo.GuestBookVo" alias="guestbookvo" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />
 		<!-- <mapper resource="mybatis/mappers/board.xml" /> -->
-		<!-- <mapper resource="mybatis/mappers/guestbook.xml" /> -->
+		<mapper resource="mybatis/mappers/guestbook.xml" />
 	</mappers>
 </configuration>
